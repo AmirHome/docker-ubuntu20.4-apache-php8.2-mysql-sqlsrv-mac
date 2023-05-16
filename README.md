@@ -31,6 +31,7 @@ To run this project, you will need to add the following environment variables to
   docker-compose up -d
   docker-compose up --build -d
   docker exec -t container-name bash -c "composer update"
+  docker exec -t container-name bash -c "php artisan key:generate"
 
 ```
     

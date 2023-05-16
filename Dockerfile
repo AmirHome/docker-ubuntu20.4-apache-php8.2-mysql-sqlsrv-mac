@@ -40,9 +40,11 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 #Apache Configurations
+RUN a2enmod rewrite
+
 COPY apache2.conf /etc/apache2/
 COPY default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
-COPY 000-default.conf /etc/apache2/sites-enabled/000-default.conf    
+COPY 000-virtualhost.conf /etc/apache2/sites-enabled/000-default.conf    
 
 EXPOSE 80
 EXPOSE 443
