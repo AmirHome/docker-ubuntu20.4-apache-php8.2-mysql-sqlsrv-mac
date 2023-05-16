@@ -6,7 +6,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update
 RUN apt-get install -y software-properties-common curl git
 
-#php 8.1
+#php 8.2
 RUN add-apt-repository ppa:ondrej/php -y
 RUN apt-get update
 RUN apt-get install php8.2 php8.2-dev php8.2-xml -y --allow-unauthenticated
@@ -22,9 +22,9 @@ RUN apt-get install -y unixodbc-dev
 #Install PHP Drivers for SQL Server
 RUN pecl install sqlsrv
 RUN pecl install pdo_sqlsrv
-RUN printf "; priority=20\nextension=sqlsrv.so\n" > /etc/php/8.1/mods-available/sqlsrv.ini
-RUN printf "; priority=30\nextension=pdo_sqlsrv.so\n" > /etc/php/8.1/mods-available/pdo_sqlsrv.ini
-RUN phpenmod -v 8.1 sqlsrv pdo_sqlsrv
+RUN printf "; priority=20\nextension=sqlsrv.so\n" > /etc/php/8.2/mods-available/sqlsrv.ini
+RUN printf "; priority=30\nextension=pdo_sqlsrv.so\n" > /etc/php/8.2/mods-available/pdo_sqlsrv.ini
+RUN phpenmod -v 8.2 sqlsrv pdo_sqlsrv
 
 #Install PHP Driver Mysql
 RUN apt-get install -y php8.2-mysql php8.2-gd
